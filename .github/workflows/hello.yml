@@ -11,3 +11,7 @@ jobs:
         steps:
             - name: say hello
               run: echo "hello world!"
+            - name: get date
+              run: date
+            - name: get directory content
+              run: ls -l
