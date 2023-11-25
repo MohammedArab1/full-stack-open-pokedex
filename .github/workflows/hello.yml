@@ -6,12 +6,14 @@ on:
             - master
 
 jobs:
-    hello_world_job:
-        runs-on: ubuntu-latest
-        steps:
-            - name: say hello
-              run: echo "hello world!"
-            - name: get date
-              run: date
-            - name: get directory content
-              run: ls -l
+    simple_deployment_pipeline:
+      runs-on: ubuntu-20.04
+      steps:
+        - uses: actions/checkout@v2
+        - uses: actions/setup-node@v3
+          with:
+            node-version: '16'
+        - name: Install dependencies
+          run: npm install
+        - name: check style
+          run: npm run eslint
